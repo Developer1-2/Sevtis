@@ -1339,3 +1339,65 @@ footer {
   .stats-row { grid-template-columns: 1fr 1fr; }
   .sfc-body { padding: 28px 24px; }
 }
+
+/* ============================================================
+   Light mode overrides (prefers-color-scheme: light)
+
+   The default theme remains the dark design. Below we override
+   only CSS variables and a couple of surface rules so the layout
+   and component styles remain unchanged while colours become
+   suitable for light system preferences.
+============================================================ */
+@media (prefers-color-scheme: light) {
+  :root {
+    --navy-950: #f8fafc;
+    --navy-900: #f1f5f9;
+    --navy-800: #e6eef8;
+    --navy-700: #dbe9f7;
+    --navy-600: #cfdff5;
+    --navy-500: #e6f0fb;
+
+    /* keep accents to preserve brand contrast */
+    --blue-500: #0a84ff;
+    --blue-400: #2196ff;
+    --blue-300: #5bb0ff;
+    --blue-glow: rgba(10, 132, 255, 0.12);
+    --green-500: #00c853;
+    --green-400: #1de073;
+    --green-glow: rgba(0, 200, 83, 0.12);
+
+    /* invert "white" token to a dark text color for light mode */
+    --white: #0b1722;
+    --white-90: rgba(11,23,34,0.9);
+    --white-70: rgba(11,23,34,0.7);
+    --white-40: rgba(11,23,34,0.4);
+    --white-15: rgba(11,23,34,0.12);
+    --white-08: rgba(11,23,34,0.08);
+    --white-04: rgba(11,23,34,0.04);
+
+    /* glass surfaces become light translucent cards */
+    --glass-bg: rgba(255,255,255,0.85);
+    --glass-border: rgba(10,132,255,0.08);
+
+    /* soften shadows on light backgrounds */
+    --shadow-blue: 0 0 20px rgba(10, 132, 255, 0.06);
+    --shadow-card: 0 8px 30px rgba(11,23,34,0.06);
+  }
+
+  /* ensure body uses the new surface tokens */
+  body { background: var(--navy-950); color: var(--white); }
+
+  /* lighten navbar and mobile menu when scrolled/open */
+  .navbar.scrolled {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 4px 18px rgba(11,23,34,0.06);
+  }
+
+  .mobile-menu { background: rgba(255,255,255,0.98); color: var(--white); }
+
+  /* keep outline buttons readable */
+  .btn-outline { color: var(--white-90); border-color: var(--white-15); }
+}
