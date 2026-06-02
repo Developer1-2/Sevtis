@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner With Us — Sevtis Security Solutions</title>
+  <meta name="description" content="Join the Sevtis partner network — engineering firms, solo engineers and licensed electricians earn more by delivering professional security installations across Uganda." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+  <style>
+    /* ── PARTNER TYPE CARDS ── */
+    .partner-types-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .partner-type-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .partner-type-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--card-accent, var(--blue-500));
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .partner-type-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(10,132,255,0.45);
+      box-shadow: var(--shadow-blue);
+    }
+
+    .partner-type-card:hover::before { opacity: 1; }
+
+    .partner-type-card.featured {
+      border-color: rgba(10,132,255,0.4);
+      background: linear-gradient(160deg, rgba(10,132,255,0.08) 0%, rgba(11,22,40,0.7) 100%);
+    }
+
+    .partner-type-card.featured::before { opacity: 1; }
+
+    .featured-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--navy-950);
+      background: var(--blue-400);
+      padding: 5px 12px;
+      border-radius: 50px;
+    }
+
+    .pt-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+    }
+
+    .pt-icon.blue { background: rgba(10,132,255,0.15); color: var(--blue-400); }
+    .pt-icon.green { background: rgba(0,200,83,0.15); color: var(--green-400); }
+    .pt-icon.amber { background: rgba(255,193,7,0.15); color: #ffc107; }
+
+    .partner-type-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .partner-type-card p {
+      font-size: 0.9rem;
+      color: var(--white-70);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .pt-perks {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pt-perk {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--white-70);
+    }
+
+    .pt-perk i {
+      color: var(--green-400);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* ── HOW IT WORKS TIMELINE ── */
+    .timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 56px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 27px;
+      top: 28px;
+      bottom: 28px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue-500), var(--green-500));
+      opacity: 0.3;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 28px;
+      padding-bottom: 40px;
+      position: relative;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .tl-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--navy-800);
+      border: 2px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--blue-400);
+      flex-shrink: 0;
+      z-index: 1;
+      transition: var(--transition);
+    }
+
+    .timeline-item:hover .tl-num {
+      background: var(--blue-500);
+      border-color: var(--blue-500);
+      color: var(--white);
+      box-shadow: 0 0 20px var(--blue-glow);
+    }
+
+    .tl-body {
+      padding-top: 14px;
+    }
+
+    .tl-body h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .tl-body p {
+      font-size: 0.9rem;
+      color: var(--white-70);
+      line-height: 1.7;
+    }
+
+    .tl-badge {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 50px;
+      border: 1px solid;
+    }
+
+    .tl-badge.green { color: var(--green-400); border-color: rgba(0,200,83,0.3); background: rgba(0,200,83,0.08); }
+    .tl-badge.blue { color: var(--blue-400); border-color: rgba(10,132,255,0.3); background: rgba(10,132,255,0.08); }
+
+    /* ── REQUIREMENTS TABLE ── */
+    .req-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .req-panel {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .req-panel-header {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--white-08);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .req-panel-header .req-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .req-icon.blue { background: rgba(10,132,255,0.15); color: var(--blue-400); }
+    .req-icon.green { background: rgba(0,200,83,0.15); color: var(--green-400); }
+
+    .req-panel-header h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .req-panel-header p {
+      font-size: 0.78rem;
+      color: var(--white-40);
+      margin-top: 2px;
+    }
+
+    .req-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .req-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--white-04);
+      transition: var(--transition);
+    }
+
+    .req-item:last-child { border-bottom: none; }
+    .req-item:hover { background: var(--white-04); }
+
+    .req-item-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .req-item-icon.must { background: rgba(10,132,255,0.12); color: var(--blue-400); }
+    .req-item-icon.nice { background: rgba(0,200,83,0.12); color: var(--green-400); }
+    .req-item-icon.warn { background: rgba(255,193,7,0.12); color: #ffc107; }
+
+    .req-item-body h5 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 3px;
+    }
+
+    .req-item-body p {
+      font-size: 0.8rem;
+      color: var(--white-40);
+      line-height: 1.5;
+    }
+
+    .req-pill {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 50px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .req-pill.required { background: rgba(10,132,255,0.15); color: var(--blue-300); }
+    .req-pill.preferred { background: rgba(0,200,83,0.12); color: var(--green-400); }
+
+    /* ── EARNINGS CALCULATOR ── */
+    .earn-section {
+      background: var(--navy-900);
+      border-top: 1px solid var(--white-08);
+      border-bottom: 1px solid var(--white-08);
+    }
+
+    .earn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .earn-calc {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+    }
+
+    .earn-calc h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+
+    .calc-slider-group {
+      margin-bottom: 24px;
+    }
+
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .slider-label span {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--white-70);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .slider-val {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--blue-400) !important;
+    }
+
+    input[type="range"].sevtis-range {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 4px;
+      background: var(--white-15);
+      border-radius: 2px;
+      outline: none;
+    }
+
+    input[type="range"].sevtis-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: var(--blue-500);
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--blue-glow);
+      border: 2px solid var(--white);
+    }
+
+    .earn-result {
+      margin-top: 28px;
+      padding: 24px;
+      background: rgba(10,132,255,0.06);
+      border: 1px solid rgba(10,132,255,0.2);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+
+    .earn-result .label {
+      font-size: 0.78rem;
+      color: var(--white-40);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .earn-result .amount {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--green-400);
+      line-height: 1;
+    }
+
+    .earn-result .sublabel {
+      font-size: 0.78rem;
+      color: var(--white-40);
+      margin-top: 6px;
+    }
+
+    .earn-points {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .earn-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .earn-point-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .earn-point-icon.blue { background: rgba(10,132,255,0.12); color: var(--blue-400); }
+    .earn-point-icon.green { background: rgba(0,200,83,0.12); color: var(--green-400); }
+    .earn-point-icon.amber { background: rgba(255,193,7,0.12); color: #ffc107; }
+
+    .earn-point h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .earn-point p {
+      font-size: 0.85rem;
+      color: var(--white-70);
+      line-height: 1.6;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .partner-testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    /* ── APPLICATION FORM ── */
+    .apply-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 56px;
+      margin-top: 56px;
+      align-items: start;
+    }
+
+    .apply-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .apply-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .apply-info p {
+      font-size: 0.95rem;
+      color: var(--white-70);
+      line-height: 1.75;
+    }
+
+    .apply-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .apply-check {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--white-70);
+    }
+
+    .apply-check i { color: var(--green-400); font-size: 1rem; flex-shrink: 0; }
+
+    .apply-form-panel {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 52px;
+    }
+
+    .apply-form-panel h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .apply-form-panel > p {
+      font-size: 0.9rem;
+      color: var(--white-70);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white-70);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--white-15);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--white);
+      outline: none;
+      transition: var(--transition);
+      width: 100%;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--white-40); }
+    .form-group select { appearance: none; cursor: pointer; }
+    .form-group select option { background: var(--navy-800); }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue-400);
+      background: rgba(10,132,255,0.06);
+      box-shadow: 0 0 0 3px rgba(10,132,255,0.12);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-error { font-size: 0.78rem; color: #ff5252; display: none; }
+    .form-error.show { display: block; }
+
+    .form-success {
+      background: rgba(0,200,83,0.1);
+      border: 1px solid rgba(0,200,83,0.3);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      font-size: 0.9rem;
+      color: var(--green-400);
+      display: none;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .form-success.show { display: block; }
+
+    /* Partner type selector */
+    .type-selector {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 0;
+    }
+
+    .type-option {
+      position: relative;
+    }
+
+    .type-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .type-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--white-15);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .type-label i {
+      font-size: 1.4rem;
+      color: var(--white-40);
+      transition: var(--transition);
+    }
+
+    .type-label span {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--white-40);
+      line-height: 1.3;
+      transition: var(--transition);
+    }
+
+    .type-option input:checked + .type-label {
+      border-color: var(--blue-400);
+      background: rgba(10,132,255,0.1);
+    }
+
+    .type-option input:checked + .type-label i,
+    .type-option input:checked + .type-label span {
+      color: var(--blue-400);
+    }
+
+    .type-label:hover {
+      border-color: var(--white-40);
+      background: var(--white-08);
+    }
+
+    /* ── FAQ ── */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 56px; }
+
+    /* ── STATS ROW OVERRIDE ── */
+    .stats-row { margin-top: 0; }
+
+    @media (max-width: 1050px) {
+      .earn-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      .partner-types-grid { grid-template-columns: 1fr; }
+      .req-grid { grid-template-columns: 1fr; }
+      .apply-grid { grid-template-columns: 1fr; }
+      .partner-testi-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .form-row { grid-template-columns: 1fr; }
+      .type-selector { grid-template-columns: 1fr 1fr 1fr; }
+      .apply-form-panel { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><i class="bi bi-shield-lock-fill"></i></div>
+        <span class="logo-text">Sev<span>tis</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="partners.html" class="active">Partners</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="partners.html">Partners</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-cta">Get a Quote</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-grid"></div>
+    <div class="container">
+      <span class="tag">Partner Programme</span>
+      <h1>Grow Your Business<br /><span style="color: var(--blue-400);">With Sevtis</span></h1>
+      <p>Engineers, electricians and technical firms — earn more by installing Uganda's most trusted security systems. We supply the equipment, training and clients. You bring the skills.</p>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px;">
+        <a href="#apply" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> Apply to Partner</a>
+        <a href="#how-it-works" class="btn btn-outline">See How It Works →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER STATS BAND -->
+  <section class="section-sm" style="background: var(--navy-900); border-top: 1px solid var(--white-08); border-bottom: 1px solid var(--white-08);">
+    <div class="container">
+      <div class="stats-row reveal">
+        <div class="stat-box">
+          <div class="num"><span data-count="45">0</span>+</div>
+          <div class="lbl">Active Partners</div>
+        </div>
+        <div class="stat-box">
+          <div class="num"><span data-count="300">0</span>+</div>
+          <div class="lbl">Jobs Referred</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">UGX <span data-count="8">0</span>M+</div>
+          <div class="lbl">Avg. Partner Earnings/yr</div>
+        </div>
+        <div class="stat-box">
+          <div class="num"><span data-count="5">0</span> days</div>
+          <div class="lbl">Avg. Onboarding Time</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE'RE LOOKING FOR -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="tag">Who Can Partner</span>
+        <h2 class="section-title">Three Ways to Partner<br />With Sevtis</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Whether you run a company or work solo, there's a partnership model designed for how you work.</p>
+      </div>
+
+      <div class="partner-types-grid">
+
+        <!-- Engineering Companies -->
+        <div class="partner-type-card reveal reveal-delay-1" style="--card-accent: var(--blue-500);">
+          <div class="pt-icon blue"><i class="bi bi-building-gear"></i></div>
+          <h3>Engineering &amp; MEP Firms</h3>
+          <p>Construction firms, MEP contractors and system integrators already working on commercial or residential projects. Add professional security systems to your service offering and earn referral or sub-contract fees on every install.</p>
+          <div class="pt-perks">
+            <div class="pt-perk"><i class="bi bi-check-circle-fill"></i> Sub-contract full security scopes to Sevtis</div>
+            <div class="pt-perk"><i class="bi bi-check-circle-fill"></i> Earn referral commission on every project</div>
+            <div class="pt-perk"><i class="bi bi-check-circle-fill"></i> Co-brand proposals with our certification</div>
+            <div class="pt-perk"><i class="bi bi-check-circle-fill"></i> Dedicated Sevtis account manager</div>
+          </div>
+          <a href="#apply" class="btn btn-outline" style="width: fit-content;">Apply as a Firm →</a>
+        </div>
+
+        <!-- Solo Engineers -->
+        <div class="partner-type-card featured reveal reveal-delay-2" style="--card-accent: var(--blue-400);">
+          <span class="featured-badge">Most Popular</span>
+          <div class="pt-icon blue"><i class="bi bi-person-badge-fill"></i></div>
+          <h3>Solo / Freelance Engineers</h3>
+          <p>Independent electrical, electronics or telecoms engineers who want to expand into security installations. We provide product training, equipment supply and a steady stream of pre-qualified clients — you deliver the installation.</p>
+          <div class="pt-perks">
+            <div class="pt-perk"><i class="bi bi-check-circle-fill"></i> Free Hikvision &amp; Dahua product training</div>
+            <div class="pt-perk"><i class="bi bi-check-circle-fill"></i> Equipment supplied at partner wholesale rates</div>
+            <div class="pt-perk"><i class="bi bi-check-circle-fill"></i> Receive client referrals from Sevtis HQ</div>
+            <div class="pt-perk"><i class="bi bi-check-circle-fill"></i> Technical support on every job</div>
+            <div class="pt-perk"><i class="bi bi-check-circle-fill"></i> Sevtis partner certificate &amp; ID card</div>
+          </div>
+          <a href="#apply" class="btn btn-primary" style="width: fit-content;"><i class="bi bi-person-plus-fill"></i> Apply Now</a>
+        </div>
+
+        <!-- Electricians & Wiring -->
+        <div class="partner-type-card reveal reveal-delay-3" style="--card-accent: #ffc107;">
+          <div class="pt-icon amber"><i class="bi bi-lightning-charge-fill"></i></div>
+          <h3>Licensed Electricians &amp; Wiring Firms</h3>
+          <p>Registered electricians and wiring contractors active in construction, renovation or fitout. Your existing cabling and power expertise is the perfect foundation for CCTV and alarm system installations — we train you on the security layer.</p>
+          <div class="pt-perks">
+            <div class="pt-perk"><i class="bi bi-check-circle-fill"></i> Security installation upskilling programme</div>
+            <div class="pt-perk"><i class="bi bi-check-circle-fill"></i> Cross-refer clients between disciplines</div>
+            <div class="pt-perk"><i class="bi bi-check-circle-fill"></i> Priority supplier pricing on cable &amp; conduit</div>
+            <div class="pt-perk"><i class="bi bi-check-circle-fill"></i> Joint bidding on large contracts</div>
+          </div>
+          <a href="#apply" class="btn btn-outline" style="width: fit-content;">Apply as an Electrician →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works" style="background: var(--navy-900); border-top: 1px solid var(--white-08); border-bottom: 1px solid var(--white-08);">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="tag">The Process</span>
+        <h2 class="section-title">How the Partnership Works</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">From application to your first paid job — most partners are operational within one week.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 56px;">
+        <div class="timeline">
+          <div class="timeline-item reveal reveal-delay-1">
+            <div class="tl-num">1</div>
+            <div class="tl-body">
+              <h4>Submit Your Application</h4>
+              <p>Fill in the partner application form below with your background, skills and area of operation. We review all applications within 48 hours.</p>
+              <span class="tl-badge blue">Free — no cost to apply</span>
+            </div>
+          </div>
+          <div class="timeline-item reveal reveal-delay-2">
+            <div class="tl-num">2</div>
+            <div class="tl-body">
+              <h4>Vetting &amp; Interview</h4>
+              <p>A Sevtis team member contacts you for a short phone or in-person interview to verify your credentials and discuss how we'll work together.</p>
+              <span class="tl-badge blue">Typically 30–45 minutes</span>
+            </div>
+          </div>
+          <div class="timeline-item reveal reveal-delay-3">
+            <div class="tl-num">3</div>
+            <div class="tl-body">
+              <h4>Product Training</h4>
+              <p>Attend a one or two-day hands-on training session covering the systems you'll install: CCTV, alarm panels, access control and/or biometric readers. Training is held at our Gulu office or on-site.</p>
+              <span class="tl-badge green">Certificate awarded on completion</span>
+            </div>
+          </div>
+          <div class="timeline-item reveal reveal-delay-4">
+            <div class="tl-num">4</div>
+            <div class="tl-body">
+              <h4>Sign the Partner Agreement</h4>
+              <p>A simple, transparent agreement covering referral rates, quality standards, use of the Sevtis brand and the terms of our working relationship.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="tl-num">5</div>
+            <div class="tl-body">
+              <h4>Start Earning</h4>
+              <p>You're added to our active partner network. Start receiving client referrals, purchasing equipment at wholesale rates, and earning on every job you complete.</p>
+              <span class="tl-badge green">First job typically within 2 weeks</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal" style="display: flex; flex-direction: column; gap: 20px;">
+          <div class="why-card" style="text-align: left;">
+            <span class="icon"><i class="bi bi-tools" style="font-size: 1.6rem; color: var(--blue-400);"></i></span>
+            <h3>We Supply — You Install</h3>
+            <p>Sevtis handles all equipment procurement, client acquisition and system design. You focus on professional installation and commissioning. No upfront stock investment required.</p>
+          </div>
+          <div class="why-card" style="text-align: left;">
+            <span class="icon"><i class="bi bi-headset" style="font-size: 1.6rem; color: var(--green-400);"></i></span>
+            <h3>Technical Backup on Every Job</h3>
+            <p>Stuck on a configuration or cable run? Our senior technicians are available by phone or WhatsApp throughout every project. You'll never be left to figure it out alone.</p>
+          </div>
+          <div class="why-card" style="text-align: left;">
+            <span class="icon"><i class="bi bi-shield-check" style="font-size: 1.6rem; color: #ffc107;"></i></span>
+            <h3>Carry Our Brand, Build Yours</h3>
+            <p>Use the Sevtis partner logo and certification on your proposals and marketing materials. Clients trust the Sevtis name — it opens doors that would otherwise take years to earn.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REQUIREMENTS -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="tag">Requirements</span>
+        <h2 class="section-title">What We Look For<br />in a Partner</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">We maintain high standards so every client gets an excellent experience — regardless of which partner delivers their installation.</p>
+      </div>
+
+      <div class="req-grid">
+
+        <!-- Engineering / Technical Requirements -->
+        <div class="req-panel reveal reveal-delay-1">
+          <div class="req-panel-header">
+            <div class="req-icon blue"><i class="bi bi-cpu-fill"></i></div>
+            <div>
+              <h4>Technical Requirements</h4>
+              <p>Skills and qualifications</p>
+            </div>
+          </div>
+          <div class="req-list">
+            <div class="req-item">
+              <div class="req-item-icon must"><i class="bi bi-patch-check-fill"></i></div>
+              <div class="req-item-body">
+                <h5>Relevant Technical Qualification <span class="req-pill required">Required</span></h5>
+                <p>Certificate, diploma or degree in Electrical Engineering, Electronics, Telecommunications, or equivalent field.</p>
+              </div>
+            </div>
+            <div class="req-item">
+              <div class="req-item-icon must"><i class="bi bi-clock-history"></i></div>
+              <div class="req-item-body">
+                <h5>Minimum 1 Year Field Experience <span class="req-pill required">Required</span></h5>
+                <p>Demonstrated hands-on experience in electrical, low-voltage or IT systems installation.</p>
+              </div>
+            </div>
+            <div class="req-item">
+              <div class="req-item-icon nice"><i class="bi bi-camera-video-fill"></i></div>
+              <div class="req-item-body">
+                <h5>Prior CCTV or Alarm Experience <span class="req-pill preferred">Preferred</span></h5>
+                <p>Previous work with Hikvision, Dahua, Axis or similar security platforms is a strong advantage but not mandatory.</p>
+              </div>
+            </div>
+            <div class="req-item">
+              <div class="req-item-icon nice"><i class="bi bi-wifi"></i></div>
+              <div class="req-item-body">
+                <h5>Network / IP Knowledge <span class="req-pill preferred">Preferred</span></h5>
+                <p>Basic understanding of IP networking (subnets, PoE, DHCP) is very helpful for modern IP-camera setups.</p>
+              </div>
+            </div>
+            <div class="req-item">
+              <div class="req-item-icon must"><i class="bi bi-tools"></i></div>
+              <div class="req-item-body">
+                <h5>Own Hand &amp; Power Tools <span class="req-pill required">Required</span></h5>
+                <p>Basic installation tools: drill, cable stripper, crimper, multimeter. Specialised equipment can be borrowed from Sevtis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Requirements -->
+        <div class="req-panel reveal reveal-delay-2">
+          <div class="req-panel-header">
+            <div class="req-icon green"><i class="bi bi-person-check-fill"></i></div>
+            <div>
+              <h4>Professional Requirements</h4>
+              <p>Conduct and documentation</p>
+            </div>
+          </div>
+          <div class="req-list">
+            <div class="req-item">
+              <div class="req-item-icon must"><i class="bi bi-card-heading"></i></div>
+              <div class="req-item-body">
+                <h5>Valid National ID or Passport <span class="req-pill required">Required</span></h5>
+                <p>Government-issued identification for background verification and partner registration.</p>
+              </div>
+            </div>
+            <div class="req-item">
+              <div class="req-item-icon nice"><i class="bi bi-file-earmark-text-fill"></i></div>
+              <div class="req-item-body">
+                <h5>ERA or ERB Registration <span class="req-pill preferred">Preferred</span></h5>
+                <p>Electricians registered with Uganda's Electricity Regulatory Authority or Engineers Registration Board are prioritised for electrical-scope jobs.</p>
+              </div>
+            </div>
+            <div class="req-item">
+              <div class="req-item-icon must"><i class="bi bi-geo-alt-fill"></i></div>
+              <div class="req-item-body">
+                <h5>Defined Service Area <span class="req-pill required">Required</span></h5>
+                <p>Clearly specify the districts or towns where you can operate. We match you with nearby clients only — no forced travel.</p>
+              </div>
+            </div>
+            <div class="req-item">
+              <div class="req-item-icon must"><i class="bi bi-telephone-fill"></i></div>
+              <div class="req-item-body">
+                <h5>Reliable Mobile Contact <span class="req-pill required">Required</span></h5>
+                <p>Must be reachable by phone or WhatsApp within 4 hours. Clients expect prompt communication and so does our team.</p>
+              </div>
+            </div>
+            <div class="req-item">
+              <div class="req-item-icon warn"><i class="bi bi-star-fill"></i></div>
+              <div class="req-item-body">
+                <h5>Maintain Quality Standards <span class="req-pill required">Required</span></h5>
+                <p>All installations must meet Sevtis workmanship standards. Partners are reviewed after every job — a minimum 4-star client rating is required to remain active.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EARNINGS SECTION -->
+  <section class="section earn-section">
+    <div class="container">
+      <div class="earn-grid">
+
+        <!-- Left — Earning Points -->
+        <div class="reveal">
+          <span class="tag">Earning Potential</span>
+          <h2 class="section-title" style="margin-bottom: 12px;">What You Can Earn</h2>
+          <p class="text-muted" style="line-height: 1.75; margin-bottom: 36px;">
+            Partner earnings depend on the type and volume of work you take on. Most solo engineer partners earn between UGX 400,000 and UGX 2,500,000 per installation depending on system complexity.
+          </p>
+          <div class="earn-points">
+            <div class="earn-point">
+              <div class="earn-point-icon blue"><i class="bi bi-currency-exchange"></i></div>
+              <div>
+                <h4>Installation Fees</h4>
+                <p>Agreed per-project rates for labour — typically 15–25% of total project value depending on system type and scale.</p>
+              </div>
+            </div>
+            <div class="earn-point">
+              <div class="earn-point-icon green"><i class="bi bi-megaphone-fill"></i></div>
+              <div>
+                <h4>Referral Commission</h4>
+                <p>Refer a client to Sevtis — even if you don't do the install — and earn 5% of the total project value as a finder's fee.</p>
+              </div>
+            </div>
+            <div class="earn-point">
+              <div class="earn-point-icon amber"><i class="bi bi-wrench-adjustable-circle-fill"></i></div>
+              <div>
+                <h4>Maintenance Contracts</h4>
+                <p>Take on recurring monthly maintenance agreements on systems you've installed for predictable, passive income throughout the year.</p>
+              </div>
+            </div>
+            <div class="earn-point">
+              <div class="earn-point-icon blue"><i class="bi bi-box-seam-fill"></i></div>
+              <div>
+                <h4>Wholesale Equipment</h4>
+                <p>Buy CCTV equipment, cable and accessories at our partner wholesale price — then supply to your own private clients at market rate.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right — Calculator -->
+        <div class="reveal">
+          <div class="earn-calc">
+            <h4><i class="bi bi-calculator-fill" style="color: var(--blue-400); margin-right: 8px;"></i> Estimate Your Monthly Earnings</h4>
+
+            <div class="calc-slider-group">
+              <div class="slider-label">
+                <span>Installations per month</span>
+                <span class="slider-val" id="installsVal">4</span>
+              </div>
+              <input type="range" class="sevtis-range" id="installs" min="1" max="15" value="4" step="1" />
+            </div>
+
+            <div class="calc-slider-group">
+              <div class="slider-label">
+                <span>Avg. project value (UGX M)</span>
+                <span class="slider-val" id="valueVal">3M</span>
+              </div>
+              <input type="range" class="sevtis-range" id="projValue" min="1" max="20" value="3" step="1" />
+            </div>
+
+            <div class="calc-slider-group">
+              <div class="slider-label">
+                <span>Your labour cut</span>
+                <span class="slider-val" id="cutVal">20%</span>
+              </div>
+              <input type="range" class="sevtis-range" id="cut" min="10" max="35" value="20" step="1" />
+            </div>
+
+            <div class="earn-result">
+              <div class="label">Estimated Monthly Earnings</div>
+              <div class="amount" id="earnResult">UGX 2,400,000</div>
+              <div class="sublabel">Labour fees only — excludes referral &amp; maintenance income</div>
+            </div>
+
+            <p style="font-size: 0.75rem; color: var(--white-40); margin-top: 16px; line-height: 1.6; text-align: center;">
+              Estimates only. Actual earnings depend on project scope, location and agreed rates.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER TESTIMONIALS -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="tag">Partner Voices</span>
+        <h2 class="section-title">What Our Partners Say</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Hear directly from engineers and electricians already building their businesses with Sevtis.</p>
+      </div>
+
+      <div class="partner-testi-grid">
+        <div class="testi-card reveal reveal-delay-1">
+          <div class="stars">★★★★★</div>
+          <p>"I was doing electrical wiring on construction sites. After the Sevtis training I added CCTV installations to my services. Within three months I doubled my monthly income. The training was very practical and the team supports you on every job."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">RO</div>
+            <div>
+              <div class="testi-name">Ronald Okello</div>
+              <div class="testi-role">Licensed Electrician — Gulu Partner since 2023</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal reveal-delay-2">
+          <div class="stars">★★★★★</div>
+          <p>"Our firm already handled MEP for several commercial builds. Partnering with Sevtis let us offer security systems as part of our package — clients love having one contractor handle everything and it's added serious revenue for us."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">MK</div>
+            <div>
+              <div class="testi-name">Moses Kyagaba</div>
+              <div class="testi-role">Director, Kyagaba Engineering Ltd — Kampala</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal reveal-delay-3">
+          <div class="stars">★★★★★</div>
+          <p>"As a solo engineer it's hard to compete for big jobs. Under the Sevtis partner programme I get access to projects I'd never land on my own, equipment at wholesale price, and technical backup whenever I need it. Best career decision I've made."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">JA</div>
+            <div>
+              <div class="testi-name">Judith Aciro</div>
+              <div class="testi-role">Electronics Engineer — Lira Partner since 2024</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATION FORM -->
+  <section class="section" id="apply" style="background: var(--navy-900); border-top: 1px solid var(--white-08); border-bottom: 1px solid var(--white-08);">
+    <div class="container">
+      <div class="apply-grid">
+
+        <!-- Left — Info -->
+        <div class="apply-info reveal">
+          <span class="tag">Apply Now</span>
+          <h3>Join the Sevtis<br />Partner Network</h3>
+          <p>Applications are reviewed within 48 hours. If you meet our basic requirements, we'll contact you to schedule a brief onboarding call.</p>
+          <div class="apply-checklist">
+            <div class="apply-check"><i class="bi bi-check-circle-fill"></i> Free to apply — no fees</div>
+            <div class="apply-check"><i class="bi bi-check-circle-fill"></i> Response within 48 hours</div>
+            <div class="apply-check"><i class="bi bi-check-circle-fill"></i> Product training provided after acceptance</div>
+            <div class="apply-check"><i class="bi bi-check-circle-fill"></i> Start earning within 1–2 weeks</div>
+            <div class="apply-check"><i class="bi bi-check-circle-fill"></i> No exclusivity — keep your own clients</div>
+          </div>
+
+          <!-- Compact FAQ -->
+          <div class="faq-list" style="margin-top: 8px;">
+            <div class="faq-item">
+              <button class="faq-q">
+                <span>Do I need to be based in Gulu?</span>
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-a">
+                <p>No. We welcome partners from all regions of Uganda. We match you with clients in your stated service area — Kampala, Lira, Jinja, Mbarara, Entebbe, or anywhere else.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q">
+                <span>Is the training free?</span>
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Yes — product training for accepted partners is fully subsidised by Sevtis. You only need to cover your own transport and accommodation if travelling from outside Gulu.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q">
+                <span>Can I partner as an individual, not a company?</span>
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Absolutely. The majority of our partners are solo engineers and individual electricians — you do not need to be a registered company to join.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right — Application Form -->
+        <div class="apply-form-panel reveal">
+          <h3>Partner Application</h3>
+          <p>Tell us about yourself and how you'd like to work with Sevtis — we'll be in touch within 48 hours.</p>
+
+          <div class="form-success" id="partnerFormSuccess">
+            <i class="bi bi-check-circle-fill" style="margin-right: 8px;"></i>
+            Application received! We'll review it and contact you within 48 hours.
+          </div>
+
+          <form id="partnerForm" novalidate>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pFirstName">First Name</label>
+                <input type="text" id="pFirstName" name="firstName" placeholder="First name" required />
+                <span class="form-error">Required.</span>
+              </div>
+              <div class="form-group">
+                <label for="pLastName">Last Name</label>
+                <input type="text" id="pLastName" name="lastName" placeholder="Last name" required />
+                <span class="form-error">Required.</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pPhone">Phone / WhatsApp</label>
+                <input type="tel" id="pPhone" name="phone" placeholder="+256 7XX XXX XXX" required />
+                <span class="form-error">Required.</span>
+              </div>
+              <div class="form-group">
+                <label for="pEmail">Email Address</label>
+                <input type="email" id="pEmail" name="email" placeholder="you@example.com" />
+                <span class="form-error">Enter a valid email.</span>
+              </div>
+            </div>
+
+            <!-- Partner Type Selector -->
+            <div class="form-group">
+              <label>I Am Applying As</label>
+              <div class="type-selector">
+                <div class="type-option">
+                  <input type="radio" name="partnerType" id="ptFirm" value="firm" />
+                  <label for="ptFirm" class="type-label">
+                    <i class="bi bi-building-gear"></i>
+                    <span>Engineering Firm</span>
+                  </label>
+                </div>
+                <div class="type-option">
+                  <input type="radio" name="partnerType" id="ptEngineer" value="engineer" checked />
+                  <label for="ptEngineer" class="type-label">
+                    <i class="bi bi-person-badge-fill"></i>
+                    <span>Solo Engineer</span>
+                  </label>
+                </div>
+                <div class="type-option">
+                  <input type="radio" name="partnerType" id="ptElec" value="electrician" />
+                  <label for="ptElec" class="type-label">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                    <span>Electrician / Wiring</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="pCompany">Company / Business Name (if applicable)</label>
+              <input type="text" id="pCompany" name="company" placeholder="Leave blank if operating as an individual" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pArea">Service Area / District</label>
+                <input type="text" id="pArea" name="area" placeholder="e.g. Gulu, Kampala, Lira…" required />
+                <span class="form-error">Required.</span>
+              </div>
+              <div class="form-group">
+                <label for="pExperience">Years of Experience</label>
+                <select id="pExperience" name="experience" required>
+                  <option value="" disabled selected>Select…</option>
+                  <option value="less1">Less than 1 year</option>
+                  <option value="1-3">1–3 years</option>
+                  <option value="3-5">3–5 years</option>
+                  <option value="5-10">5–10 years</option>
+                  <option value="10+">10+ years</option>
+                </select>
+                <span class="form-error">Required.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="pQualification">Highest Relevant Qualification</label>
+              <select id="pQualification" name="qualification" required>
+                <option value="" disabled selected>Select your qualification…</option>
+                <option>Certificate in Electrical Engineering</option>
+                <option>Diploma in Electrical / Electronics Engineering</option>
+                <option>BSc Electrical Engineering</option>
+                <option>BSc Electronics / Telecommunications</option>
+                <option>BSc Computer / IT Engineering</option>
+                <option>ERA / ERB Licensed Electrician</option>
+                <option>Other technical qualification</option>
+              </select>
+              <span class="form-error">Required.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="pBackground">Tell Us About Your Experience</label>
+              <textarea id="pBackground" name="background" placeholder="Briefly describe your technical background, types of projects you've worked on, and any previous security system experience…" required></textarea>
+              <span class="form-error">Please tell us about your experience.</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 1rem; padding: 18px;">
+              <i class="bi bi-send-fill"></i> Submit My Application
+            </button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <h2>Questions Before Applying?</h2>
+        <p>Chat with our partnerships team on WhatsApp — we're happy to answer any questions about the programme.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/256768381442?text=Hi%2C%20I%27m%20interested%20in%20the%20Sevtis%20partner%20programme" target="_blank" class="btn btn-whatsapp"><i class="bi bi-whatsapp"></i> WhatsApp Us Now</a>
+          <a href="mailto:partners@sevtis.ug" class="btn btn-outline"><i class="bi bi-envelope-fill"></i> partners@sevtis.ug</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="bi bi-shield-fill-check"></i></div>
+            <span class="logo-text">Sev<span>tis</span></span>
+          </a>
+          <p>Uganda's trusted partner for professional security installations — protecting homes and businesses with cutting-edge technology since 2016.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="partners.html">Partner With Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">CCTV Installation</a></li>
+            <li><a href="services.html">Alarm Systems</a></li>
+            <li><a href="services.html">Access Control</a></li>
+            <li><a href="services.html">Biometric Systems</a></li>
+            <li><a href="services.html">Smart Surveillance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact">
+            <div class="contact-item"><span class="ci"><i class="bi bi-geo-alt-fill"></i></span> Plot 14 Juba Road, Gulu, Uganda</div>
+            <div class="contact-item"><span class="ci"><i class="bi bi-telephone-inbound-fill"></i></span> +256 768381442</div>
+            <div class="contact-item"><span class="ci"><i class="bi bi-envelope-at-fill"></i></span> partners@sevtis.ug</div>
+            <div class="contact-item"><span class="ci"><i class="bi bi-clock"></i></span> Mon–Fri: 8am–6pm · Sat: 9am–3pm</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sevtis. All rights reserved.</p>
+        <p>Designed with precision for your protection.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // ── EARNINGS CALCULATOR ──
+    const installs = document.getElementById('installs');
+    const projValue = document.getElementById('projValue');
+    const cut = document.getElementById('cut');
+    const installsVal = document.getElementById('installsVal');
+    const valueVal = document.getElementById('valueVal');
+    const cutVal = document.getElementById('cutVal');
+    const earnResult = document.getElementById('earnResult');
+
+    function calcEarnings() {
+      const jobs = parseInt(installs.value);
+      const val = parseInt(projValue.value) * 1000000;
+      const pct = parseInt(cut.value) / 100;
+      const total = jobs * val * pct;
+      installsVal.textContent = jobs;
+      valueVal.textContent = projValue.value + 'M';
+      cutVal.textContent = cut.value + '%';
+      earnResult.textContent = 'UGX ' + total.toLocaleString('en-UG');
+    }
+
+    [installs, projValue, cut].forEach(el => el.addEventListener('input', calcEarnings));
+    calcEarnings();
+
+    // ── PARTNER FORM VALIDATION ──
+    const partnerForm = document.getElementById('partnerForm');
+    if (partnerForm) {
+      partnerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let valid = true;
+        const fields = partnerForm.querySelectorAll('[required]');
+        fields.forEach(field => {
+          const err = field.parentElement.querySelector('.form-error');
+          if (!field.value.trim()) {
+            if (err) { err.textContent = 'This field is required.'; err.classList.add('show'); }
+            field.style.borderColor = '#ff5252';
+            valid = false;
+          } else if (field.type === 'email' && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+            if (err) { err.textContent = 'Enter a valid email.'; err.classList.add('show'); }
+            field.style.borderColor = '#ff5252';
+            valid = false;
+          } else {
+            if (err) err.classList.remove('show');
+            field.style.borderColor = '';
+          }
+        });
+        if (valid) {
+          const success = document.getElementById('partnerFormSuccess');
+          if (success) success.classList.add('show');
+          partnerForm.reset();
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => success.classList.remove('show'), 7000);
+        }
+      });
+      partnerForm.querySelectorAll('input, select, textarea').forEach(field => {
+        field.addEventListener('input', () => {
+          const err = field.parentElement.querySelector('.form-error');
+          if (err) err.classList.remove('show');
+          field.style.borderColor = '';
+        });
+      });
+    }
+  </script>
+</body>
+</html>
