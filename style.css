@@ -1186,7 +1186,7 @@ footer {
 
 .team-card img {
   width: 100%;
-  height: 220px;
+  height: 320px;
   object-fit: cover;
 }
 
@@ -1310,7 +1310,7 @@ footer {
   .service-full-card { grid-template-columns: 1fr; }
   .service-full-card.reverse { grid-template-columns: 1fr; }
   .service-full-card.reverse .sfc-img { order: 0; }
-  .sfc-img img { min-height: 280px; }
+  .sfc-img img { min-height: 300px; }
 }
 
 @media (max-width: 900px) {
