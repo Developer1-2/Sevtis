@@ -1,0 +1,1 @@
+Sitemap: https://sevtis.netlify.app/sitemap.xml
