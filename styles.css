@@ -1,0 +1,501 @@
+/* Reset basic margin/padding for clean layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Add top padding to body so page content doesn't get hidden under fixed header */
+body {
+  padding-top: 110px; /* Adjust height based on header height */
+}
+
+/* 1. FIXED HEADER CONTAINER */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Keeps header on top of all other page content */
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow on scroll */
+}
+
+/* 2. TOP SOCIAL LINKS BAR */
+.social-links {
+  display: flex;
+  justify-content: flex-end; /* Aligns social links to the right */
+  align-items: center;
+  gap: 15px;
+  background-color: #f4f4f4;
+  padding: 8px 5%;
+  font-size: 0.85rem;
+}
+
+.social-links a {
+  color: #555555;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+  color: #000000;
+}
+
+/* Search button styling */
+.social-links .search-button {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+.social-links .search-button:hover {
+  background-color: #0056b3;
+}
+
+/* 3. MAIN NAVIGATION BAR */
+.nav-bars {
+  display: flex;
+  justify-content: space-between; /* Logo on left, Nav links on right */
+  align-items: center;
+  padding: 15px 5%;
+}
+
+.logo-sec h1 {
+  font-size: 1.8rem;
+  color: #222222;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px; /* Space between links */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+
+.social-links {
+  display: flex;
+  justify-content: flex-end; /* Pushes content to the far right */
+  gap: 15px;
+}
+
+.nav-links {
+  display: flex;
+  right:100px;
+  gap:15px;
+}
+
+
+.nav-bars {
+  display: flex;
+  justify-content: space-between; /* Pushes child elements to opposite ends */
+  align-items: center;            /* Vertically centers the logo and links */
+  padding: 10px 20px;             /* Optional spacing inside the header */
+}
+
+/* Optional: Spacing between individual links on the right */
+.nav-links {
+  display: flex;
+  gap: 20px; 
+}
+
+
+/* Container section setup */
+.hero-sec {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Set to 100vh for full viewport height, or a fixed height like 600px */
+    overflow: hidden;
+}
+
+/* Slider container */
+.slider.slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Individual slide styling */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Hidden by default for JavaScript/CSS animations */
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Set the active slide to visible */
+.slide.active {
+    opacity: 1;
+}
+
+/* Ensure images fill the entire section without distorting */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Text overlay positioning */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers content perfectly */
+    text-align: center;
+    color: #ffffff;
+    z-index: 2;
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+/* Optional dark overlay gradient for better text legibility */
+.slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Darkens background image */
+    z-index: 1;
+}
+
+/* 1. FOOTER CONTAINER */
+.footer-tag {
+  background-color: #1a1a1a; /* Dark background */
+  color: #ffffff;
+  padding: 50px 5%;
+  
+  /* Creates a 3-column layout that automatically stacks on smaller screens */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+/* 2. SECTION HEADINGS (h3) */
+.footer-tag h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffffff;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+/* Accent line beneath headings */
+.footer-tag h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #007bff; /* Primary accent color */
+}
+
+/* 3. FOOTER LINKS */
+.footer-tag a {
+  display: block; /* Stacks links vertically */
+  color: #b0b0b0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-tag a:hover {
+  color: #ffffff;
+  transform: translateX(4px); /* Slight shift to the right on hover */
+}
+
+/* 4. ABOUT US TEXT */
+.footer-tag p {
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Section Container */
+.services {
+  padding: 60px 5%;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+/* Outer Window: Hides cards moving out of view */
+.services-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Infinite Scroll Track */
+.services-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  /* Adjust 15s to change animation speed */
+  animation: scrollLeft 15s linear infinite; 
+}
+
+/* Pause animation on hover so users can view/click cards */
+.services-wrapper:hover .services-track {
+  animation-play-state: paused;
+}
+
+/* Individual Card Styling */
+.service-card {
+  width: 300px; /* Fixed width per card */
+  flex-shrink: 0; /* Prevents cards from squishing */
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.service-card h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Continuous Scroll Keyframes */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Moves left by half the track width (the duplicated cards seamless transition) */
+    transform: translateX(calc(-50% - 15px)); 
+  }
+}
+
+
+/* Hero Container must be relative */
+.hero-sec {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Set desired hero height */
+  overflow: hidden;
+}
+
+/* Floating Partners Overlay Bar */
+.partners {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; /* Keeps it above slider images */
+  
+  /* Glassmorphism/Dark Translucent background */
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px); /* Blurs hero image behind the bar */
+  color: #ffffff;
+  
+  /* Layout alignment */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 5%;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.partners h2 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #a0a0a0;
+  margin: 0;
+}
+
+.partners p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.equipment-section {
+    padding: 60px 5%;
+    background-color: #ffffff;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 15px;
+}
+
+.section-header h2 {
+    font-size: 1.8rem;
+    color: #111111;
+}
+
+.section-header p {
+    color: #666666;
+    margin-top: 5px;
+}
+
+.btn-catalog {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* 1. DESKTOP LAYOUT (GRID/TABLE STYLING) */
+.table-header,
+.table-row {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 3fr 1fr;
+    align-items: center;
+    padding: 18px 20px;
+}
+
+.table-header {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #555555;
+    border-radius: 6px 6px 0 0;
+}
+
+.table-row {
+    border-bottom: 1px solid #eeeeee;
+    transition: background-color 0.2s ease;
+}
+
+.table-row:hover {
+    background-color: #fcfcfc;
+}
+
+.col-product {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.col-product img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.col-product h3 {
+    font-size: 1rem;
+    color: #111111;
+    margin-bottom: 3px;
+}
+
+.model-no {
+    font-size: 0.8rem;
+    color: #888888;
+}
+
+.col-category {
+    font-size: 0.9rem;
+    color: #007bff;
+    font-weight: 500;
+}
+
+.col-specs {
+    font-size: 0.9rem;
+    color: #555555;
+}
+
+.link-specs {
+    color: #111111;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.link-specs:hover {
+    color: #007bff;
+}
+
+/* 2. MOBILE RESPONSIVE LAYOUT (< 768px) */
+@media (max-width: 768px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    /* Hide desktop table header on small screens */
+    .table-header {
+        display: none;
+    }
+
+    /* Stack row contents into vertical cards/strips on mobile */
+    .table-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 20px;
+        background-color: #fcfcfc;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+
+    .col-product img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .col-specs {
+        font-size: 0.85rem;
+        background-color: #f0f4f8;
+        padding: 8px 12px;
+        border-radius: 4px;
+        width: 100%;
+    }
+
+    .col-action {
+        width: 100%;
+        text-align: right;
+        margin-top: 5px;
+    }
+}

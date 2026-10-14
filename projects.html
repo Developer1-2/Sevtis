@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Our Work | Sevtis</title>
+  <meta name="description" content="Selected Sevtis security installations: CCTV, access control, and alarm systems for homes, shops, and offices in Uganda.">
+  <link rel="stylesheet" href="sevtis-styles.css">
+  <style>
+    .projects-page {
+      padding: 40px 5% 64px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .projects-intro h1 {
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      color: #111;
+      margin-bottom: 0.5rem;
+    }
+    .projects-intro p {
+      color: #555;
+      font-size: 1.05rem;
+      max-width: 40rem;
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 1.75rem;
+    }
+    .filter-btn {
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #333;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .filter-btn:hover {
+      border-color: #007bff;
+      color: #007bff;
+    }
+    .filter-btn.active {
+      background: #007bff;
+      border-color: #007bff;
+      color: #fff;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 600px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 960px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .project-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .project-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .project-image {
+      aspect-ratio: 16/10;
+      background: #e9ecef;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .project-image-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 0.85rem;
+      padding: 1rem;
+      text-align: center;
+      background: linear-gradient(135deg, #e9ecef, #dee2e6);
+    }
+    .project-body {
+      padding: 1.1rem 1.15rem 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 0.5rem;
+    }
+    .project-tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #007bff;
+      background: #eef5ff;
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+    .project-card h2 {
+      font-size: 1.05rem;
+      color: #111;
+      margin-bottom: 0.35rem;
+      line-height: 1.3;
+    }
+    .project-meta {
+      font-size: 0.82rem;
+      color: #888;
+      margin-bottom: 0.55rem;
+    }
+    .project-card p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 0.85rem;
+      flex: 1;
+    }
+    .project-cta {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #007bff;
+      text-decoration: none;
+    }
+    .project-cta:hover {
+      text-decoration: underline;
+    }
+    .projects-empty {
+      display: none;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: #666;
+    }
+    .trust-band {
+      margin-top: 2.75rem;
+      padding: 1.75rem;
+      background: #111;
+      color: #fff;
+      border-radius: 14px;
+      display: grid;
+      gap: 1.25rem;
+    }
+    @media (min-width: 700px) {
+      .trust-band {
+        grid-template-columns: 1.4fr 1fr;
+        align-items: center;
+      }
+    }
+    .trust-band h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+    .trust-band p {
+      color: #bbb;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .trust-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 10px 16px;
+      border-radius: 8px;
+    }
+    .btn-primary:hover { background: #0056b3; }
+    .btn-wa {
+      display: inline-flex;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 10px 16px;
+      border-radius: 8px;
+    }
+    .btn-wa:hover { background: #1ebe57; }
+    .note {
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <a href="tel:+256768381442" class="header-phone">0768 381 442</a>
+        <div class="social-links">
+          <a href="https://wa.me/256768381442" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <nav class="nav-bars">
+      <div class="logo-sec">
+        <a href="sevtis-index.html" class="logo">Sevtis</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="solutions.html">Solutions</a>
+        <a href="products.html">Products</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="projects-page">
+    <div class="projects-intro">
+      <h1>Our work</h1>
+      <p>
+        Selected installations across homes, shops, and workplaces. Replace the sample entries and images with your real project photos when ready — the layout is built for that.
+      </p>
+    </div>
+
+    <div class="filter-row" id="filterRow">
+      <button type="button" class="filter-btn active" data-filter="all">All</button>
+      <button type="button" class="filter-btn" data-filter="cctv">CCTV</button>
+      <button type="button" class="filter-btn" data-filter="access">Access control</button>
+      <button type="button" class="filter-btn" data-filter="alarm">Alarms</button>
+      <button type="button" class="filter-btn" data-filter="home">Homes</button>
+      <button type="button" class="filter-btn" data-filter="business">Business</button>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+      <!-- Project 1 -->
+      <article class="project-card" data-tags="cctv home">
+        <div class="project-image">
+          <img src="images/projects/home-cctv.jpg" alt="Residential CCTV installation" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="project-image-fallback" style="display:none">Add photo: home CCTV</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">CCTV</span>
+            <span class="project-tag">Home</span>
+          </div>
+          <h2>Residential compound surveillance</h2>
+          <div class="project-meta">Kampala area · Dome + bullet cameras</div>
+          <p>Multi-camera coverage for gate, driveway, and backyard with night vision and phone viewing for the homeowner.</p>
+          <a class="project-cta" href="https://wa.me/256768381442?text=Hi%2C%20I%20saw%20your%20residential%20CCTV%20project%20and%20want%20something%20similar" target="_blank" rel="noopener">Ask for a similar setup →</a>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card" data-tags="cctv business">
+        <div class="project-image">
+          <img src="images/projects/shop-cctv.jpg" alt="Shop CCTV installation" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="project-image-fallback" style="display:none">Add photo: shop CCTV</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">CCTV</span>
+            <span class="project-tag">Business</span>
+          </div>
+          <h2>Retail shop floor &amp; stock room</h2>
+          <div class="project-meta">SME retail · IP cameras + NVR</div>
+          <p>Counter, entrance, and stock area monitored to reduce loss and support staff accountability.</p>
+          <a class="project-cta" href="https://wa.me/256768381442?text=Hi%2C%20I%20need%20CCTV%20for%20my%20shop" target="_blank" rel="noopener">Ask for a similar setup →</a>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card" data-tags="access business">
+        <div class="project-image">
+          <img src="images/projects/office-access.jpg" alt="Office access control" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="project-image-fallback" style="display:none">Add photo: office access</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">Access</span>
+            <span class="project-tag">Business</span>
+          </div>
+          <h2>Office biometric entry</h2>
+          <div class="project-meta">Office building · Facial / card terminal</div>
+          <p>Main door access control with staff enrolment and restricted zones for management areas.</p>
+          <a class="project-cta" href="https://wa.me/256768381442?text=Hi%2C%20I%20need%20access%20control%20for%20an%20office" target="_blank" rel="noopener">Ask for a similar setup →</a>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project-card" data-tags="alarm home">
+        <div class="project-image">
+          <img src="images/projects/home-alarm.jpg" alt="Home alarm system" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="project-image-fallback" style="display:none">Add photo: home alarm</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">Alarm</span>
+            <span class="project-tag">Home</span>
+          </div>
+          <h2>Home intrusion alarm</h2>
+          <div class="project-meta">Residential · Wireless kit + siren</div>
+          <p>Door contacts, motion sensors, and outdoor siren with mobile alerts for when the family is away.</p>
+          <a class="project-cta" href="https://wa.me/256768381442?text=Hi%2C%20I%20need%20an%20alarm%20system%20for%20my%20home" target="_blank" rel="noopener">Ask for a similar setup →</a>
+        </div>
+      </article>
+
+      <!-- Project 5 -->
+      <article class="project-card" data-tags="cctv access business">
+        <div class="project-image">
+          <img src="images/projects/warehouse.jpg" alt="Warehouse security" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="project-image-fallback" style="display:none">Add photo: warehouse</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">CCTV</span>
+            <span class="project-tag">Access</span>
+            <span class="project-tag">Business</span>
+          </div>
+          <h2>Warehouse yard &amp; gate</h2>
+          <div class="project-meta">Industrial · Cameras + gate control</div>
+          <p>Perimeter and loading-bay cameras combined with controlled gate access for staff and deliveries.</p>
+          <a class="project-cta" href="https://wa.me/256768381442?text=Hi%2C%20I%20need%20security%20for%20a%20warehouse" target="_blank" rel="noopener">Ask for a similar setup →</a>
+        </div>
+      </article>
+
+      <!-- Project 6 -->
+      <article class="project-card" data-tags="cctv alarm business">
+        <div class="project-image">
+          <img src="images/projects/office-full.jpg" alt="Office full security" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="project-image-fallback" style="display:none">Add photo: office package</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">CCTV</span>
+            <span class="project-tag">Alarm</span>
+            <span class="project-tag">Business</span>
+          </div>
+          <h2>Office package: cameras + alarm</h2>
+          <div class="project-meta">SME office · Combined system</div>
+          <p>Daytime surveillance and after-hours intrusion detection in one coordinated install.</p>
+          <a class="project-cta" href="https://wa.me/256768381442?text=Hi%2C%20I%20want%20a%20full%20office%20security%20package" target="_blank" rel="noopener">Ask for a similar setup →</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="projects-empty" id="projectsEmpty">No projects in this filter. Try another category.</p>
+
+    <p class="note">
+      Sample projects for layout. Swap titles, locations, and images with real jobs (with client permission). Keep descriptions short and factual.
+    </p>
+
+    <div class="trust-band">
+      <div>
+        <h2>Want results like these on your property?</h2>
+        <p>Tell us your site type — home, shop, office, or warehouse — and we’ll recommend a practical system.</p>
+      </div>
+      <div class="trust-actions">
+        <a class="btn-primary" href="contact.html">Request a survey</a>
+        <a class="btn-wa" href="https://wa.me/256768381442?text=Hi%2C%20I%20saw%20your%20projects%20and%20want%20a%20quote" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-tag">
+    <div>
+      <h3>Explore</h3>
+      <a href="solutions.html">Solutions</a>
+      <a href="products.html">Products</a>
+      <a href="projects.html">Projects</a>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <a href="contact.html">Request a quote</a>
+      <p class="footer-phone"><a href="tel:+256768381442">0768 381 442</a></p>
+    </div>
+    <div>
+      <h3>Sevtis</h3>
+      <p>CCTV, access control, and alarm systems — supplied and installed.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var menuToggle = document.getElementById('menuToggle');
+    var navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', function () {
+        navLinks.classList.toggle('open');
+      });
+    }
+
+    var buttons = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.project-card');
+    var empty = document.getElementById('projectsEmpty');
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        buttons.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var filter = btn.getAttribute('data-filter');
+        var visible = 0;
+        cards.forEach(function (card) {
+          var tags = card.getAttribute('data-tags') || '';
+          var show = filter === 'all' || tags.indexOf(filter) !== -1;
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        empty.style.display = visible ? 'none' : 'block';
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
