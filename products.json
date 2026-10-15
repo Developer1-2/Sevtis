@@ -1,0 +1,129 @@
+{
+  "whatsapp": "256768381442",
+  "categories": [
+    { "id": "cctv", "name": "CCTV Cameras" },
+    { "id": "biometric", "name": "Biometric Systems" },
+    { "id": "alarms", "name": "Alarm Systems" }
+  ],
+  "products": [
+    {
+      "id": "st-4k-d30",
+      "name": "4K IP Vandal Dome Camera",
+      "category": "cctv",
+      "model": "ST-4K-D30",
+      "image": "images/download.avif",
+      "summary": "Rugged 4K dome for outdoor and high-traffic areas with strong night vision.",
+      "description": "The ST-4K-D30 is a commercial-grade IP vandal dome designed for reliable surveillance in demanding environments. It delivers 4K resolution for clear identification, infrared night vision up to 30 metres, and an IP67-rated housing for weather resistance. Suitable for offices, shops, compounds, and industrial sites.",
+      "specs": [
+        "4K Ultra HD resolution",
+        "30m IR night vision",
+        "IP67 weatherproof housing",
+        "Vandal-resistant dome",
+        "PoE support"
+      ],
+      "featured": true
+    },
+    {
+      "id": "st-4k-b40",
+      "name": "4K IP Bullet Camera",
+      "category": "cctv",
+      "model": "ST-4K-B40",
+      "image": "images/images (3).jpg",
+      "summary": "Long-range bullet camera for perimeter and parking coverage.",
+      "description": "The ST-4K-B40 bullet camera is built for perimeter walls, driveways, and open yards. 4K detail and extended IR help you cover longer distances with fewer units. Ideal where a dome’s field of view is not enough.",
+      "specs": [
+        "4K Ultra HD resolution",
+        "40m IR night vision",
+        "IP67 outdoor rated",
+        "Fixed lens optimized for distance",
+        "Metal housing"
+      ],
+      "featured": true
+    },
+    {
+      "id": "st-ptz-20",
+      "name": "20x Optical PTZ Camera",
+      "category": "cctv",
+      "model": "ST-PTZ-20",
+      "image": "images/images (1).jpg",
+      "summary": "Pan-tilt-zoom camera for active monitoring of large sites.",
+      "description": "Control direction and zoom from your NVR or mobile app. The ST-PTZ-20 is suited to warehouses, schools, and multi-building compounds where operators need to follow activity across a wide area.",
+      "specs": [
+        "20x optical zoom",
+        "360° continuous pan",
+        "Auto-tracking capable (with compatible NVR)",
+        "Outdoor weatherproof design",
+        "Infrared night support"
+      ],
+      "featured": false
+    },
+    {
+      "id": "st-ac-800",
+      "name": "Touchless Facial & Card Terminal",
+      "category": "biometric",
+      "model": "ST-AC-800",
+      "image": "images/images (6).jpg",
+      "summary": "Fast facial recognition with card fallback for offices and gated entries.",
+      "description": "The ST-AC-800 combines touchless facial recognition with card authentication. Recognition in about 0.2 seconds supports busy entrances. Anti-spoofing dual-camera design reduces false access from photos. Capacity for large user lists makes it practical for growing organisations.",
+      "specs": [
+        "0.2s facial recognition",
+        "Up to 50,000 users",
+        "Dual-camera anti-spoofing",
+        "Card / PIN backup",
+        "Network access control integration"
+      ],
+      "featured": true
+    },
+    {
+      "id": "st-fp-500",
+      "name": "Fingerprint Access Reader",
+      "category": "biometric",
+      "model": "ST-FP-500",
+      "image": "images/images (7).jpg",
+      "summary": "Reliable fingerprint reader for doors and staff attendance.",
+      "description": "A practical fingerprint terminal for single doors or small multi-door setups. Use it for access control, time attendance, or both. Simple enrolment and stable recognition for everyday workplace use.",
+      "specs": [
+        "Optical fingerprint sensor",
+        "Access control + attendance modes",
+        "Card option supported",
+        "TCP/IP connectivity",
+        "Indoor rated"
+      ],
+      "featured": false
+    },
+    {
+      "id": "st-alm-pro",
+      "name": "Wireless Intrusion Alarm Kit",
+      "category": "alarms",
+      "model": "ST-ALM-PRO",
+      "image": "images/images(10).webp",
+      "summary": "Expandable wireless alarm kit for homes and small businesses.",
+      "description": "The ST-ALM-PRO kit gives you a control panel, door/window contacts, and motion detection as a starting point. Add more sensors as your site grows. App alerts help you respond quickly when something is triggered.",
+      "specs": [
+        "Wireless sensors",
+        "Mobile app notifications",
+        "Door/window + PIR motion",
+        "Expandable zones",
+        "Backup power support"
+      ],
+      "featured": true
+    },
+    {
+      "id": "st-alm-siren",
+      "name": "Outdoor Wireless Siren",
+      "category": "alarms",
+      "model": "ST-ALM-SIREN",
+      "image": "images/images(9).webp",
+      "summary": "Loud outdoor siren with strobe for visible and audible deterrent.",
+      "description": "Pair with your alarm panel to deter intruders and alert neighbours. Weather-resistant housing suits Ugandan outdoor conditions. Use on walls or under eaves for strong coverage.",
+      "specs": [
+        "High-output siren",
+        "Strobe indicator",
+        "Wireless link to panel",
+        "Weather-resistant housing",
+        "Battery backup"
+      ],
+      "featured": false
+    }
+  ]
+}

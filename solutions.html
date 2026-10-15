@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions — CCTV, Access Control & Alarms | Sevtis</title>
+  <meta name="description" content="Sevtis security solutions: CCTV surveillance, biometric access control, and alarm systems. Supplied and installed in Uganda.">
+  <link rel="stylesheet" href="sevtis-styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+  <style>
+    .solutions-page {
+      padding: 40px 5% 64px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .solutions-intro h1 {
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      color: #111;
+      margin-bottom: 0.5rem;
+    }
+    .solutions-intro > p {
+      color: #555;
+      font-size: 1.05rem;
+      max-width: 40rem;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .solutions-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 2rem;
+    }
+    .solutions-nav a {
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #333;
+      border: 1px solid #ddd;
+      padding: 8px 14px;
+      border-radius: 999px;
+      transition: all 0.15s ease;
+    }
+    .solutions-nav a:hover {
+      border-color: #007bff;
+      color: #007bff;
+    }
+    .solution-block {
+      padding: 2rem 0;
+      border-bottom: 1px solid #eaeaea;
+      scroll-margin-top: 120px;
+    }
+    .solution-block:last-of-type {
+      border-bottom: none;
+    }
+    .solution-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #007bff;
+      background: #eef5ff;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 0.6rem;
+    }
+    .solution-block h2 {
+      font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+      color: #111;
+      margin-bottom: 0.65rem;
+    }
+    .solution-lead {
+      font-size: 1.02rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 1.15rem;
+      max-width: 40rem;
+    }
+    .solution-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (min-width: 720px) {
+      .solution-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1.75rem;
+        align-items: start;
+      }
+    }
+    .solution-body p {
+      font-size: 0.98rem;
+      color: #333;
+      line-height: 1.7;
+      margin-bottom: 0.9rem;
+    }
+    .solution-points {
+      background: #f8f9fb;
+      border-radius: 12px;
+      padding: 1.15rem 1.2rem;
+      border-left: 3px solid #007bff;
+    }
+    .solution-points h3 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #555;
+      margin-bottom: 0.65rem;
+    }
+    .solution-points ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+    .solution-points li {
+      font-size: 0.92rem;
+      color: #333;
+      margin-bottom: 0.4rem;
+      line-height: 1.45;
+    }
+    .solution-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 0.5rem;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 10px 16px;
+      border-radius: 8px;
+    }
+    .btn-primary:hover {
+      background: #0056b3;
+    }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 10px 16px;
+      border-radius: 8px;
+    }
+    .btn-wa:hover {
+      background: #1ebe57;
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      color: #111;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    .btn-ghost:hover {
+      border-color: #007bff;
+      color: #007bff;
+    }
+    .how-section {
+      margin-top: 2.5rem;
+      padding: 1.75rem;
+      background: #111;
+      color: #fff;
+      border-radius: 14px;
+    }
+    .how-section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .how-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 700px) {
+      .how-steps {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+      }
+    }
+    .how-step {
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    .how-step span {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.04em;
+    }
+    .how-step h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.35rem;
+    }
+    .how-step p {
+      font-size: 0.85rem;
+      color: #bbb;
+      line-height: 1.45;
+      margin: 0;
+    }
+    .bottom-cta {
+      margin-top: 2rem;
+      text-align: center;
+      padding: 1.75rem;
+      background: #f8f9fb;
+      border-radius: 12px;
+    }
+    .bottom-cta h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+      color: #111;
+    }
+    .bottom-cta p {
+      color: #555;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .bottom-cta .solution-actions {
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <a href="tel:+256768381442" class="header-phone"><i class="bi bi-telephone-inbound-fill"></i>  0768 381 442</a>
+        <div class="social-links">
+          <a href="https://wa.me/256768381442" target="_blank" rel="noopener">
+            <i class="bi bi-whatsapp"></i> WhatsApp
+          </a>
+          <a href="https://linkedin.com/company/sevtis" target="_blank" rel="noopener">
+            <i class="bi bi-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://instagram.com/sevtis" target="_blank" rel="noopener">
+            <i class="bi bi-instagram"></i> Instagram
+          </a>
+          <a href="https://facebook.com/sevtis" target="_blank" rel="noopener">
+            <i class="bi bi-facebook"></i> Facebook
+          </a>
+        </div>
+      </div>
+    </div>
+    <nav class="nav-bars">
+      <div class="logo-sec">
+        <a href="index.html" class="logo">Sevtis</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="solutions.html">Solutions</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="solutions-page">
+    <div class="solutions-intro">
+      <h1>Security solutions</h1>
+      <p>
+        Sevtis designs, supplies, and installs practical security systems for homes, shops, offices, and sites.
+        Choose a solution below — or tell us your property and we’ll recommend the right mix.
+      </p>
+      <nav class="solutions-nav" aria-label="On this page">
+        <a href="#cctv">CCTV &amp; surveillance</a>
+        <a href="#biometric">Biometric access</a>
+        <a href="#alarms">Alarm systems</a>
+        <a href="#process">How we work</a>
+      </nav>
+    </div>
+
+    <!-- CCTV -->
+    <article class="solution-block" id="cctv">
+      <span class="solution-tag">Surveillance</span>
+      <h2>CCTV &amp; video surveillance</h2>
+      <p class="solution-lead">
+        See what happens on your property — live and recorded — with cameras matched to indoor, outdoor, and long-range needs.
+      </p>
+      <div class="solution-grid">
+        <div class="solution-body">
+          <p>
+            A good CCTV system is not about the highest number of cameras. It is about covering the right angles:
+            entrances, parking, stock areas, and blind spots, with image quality strong enough to identify people and vehicles when it matters.
+          </p>
+          <p>
+            Sevtis supplies IP and commercial-grade cameras (including Hikvision-class hardware), recorders, and remote viewing setup
+            so you can check your site from your phone. We size the system to your building and budget, then install and hand over clearly.
+          </p>
+          <div class="solution-actions">
+            <a class="btn-primary" href="products.html">Browse CCTV products</a>
+            <a class="btn-wa" href="https://wa.me/256768381442?text=Hi%2C%20I%27m%20interested%20in%20a%20CCTV%20system" target="_blank" rel="noopener">WhatsApp about CCTV</a>
+            <a class="btn-ghost" href="contact.html">Request a survey</a>
+          </div>
+        </div>
+        <div class="solution-points">
+          <h3>Typical use cases</h3>
+          <ul>
+            <li>Homes and compounds</li>
+            <li>Shops and stock rooms</li>
+            <li>Offices and reception</li>
+            <li>Warehouses and yards</li>
+            <li>Perimeter and parking</li>
+          </ul>
+          <h3 style="margin-top:1rem">What we set up</h3>
+          <ul>
+            <li>Dome, bullet, and PTZ cameras</li>
+            <li>NVR / recording and storage</li>
+            <li>Night vision and outdoor housings</li>
+            <li>Mobile app viewing</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Biometric -->
+    <article class="solution-block" id="biometric">
+      <span class="solution-tag">Access control</span>
+      <h2>Biometric &amp; access control</h2>
+      <p class="solution-lead">
+        Control who enters — and when — with facial recognition, fingerprint, or card systems that fit busy doors and staff gates.
+      </p>
+      <div class="solution-grid">
+        <div class="solution-body">
+          <p>
+            Keys get copied and shared. Access control gives you a clear record of entry and the ability to revoke access when staff leave
+            or tenants change. Facial and fingerprint terminals are fast for high-traffic doors; cards remain a simple backup.
+          </p>
+          <p>
+            We install readers, locks, and controllers for single doors or multi-door sites, and can link attendance where you need it.
+            The goal is reliable daily use — not a system your team fights with every morning.
+          </p>
+          <div class="solution-actions">
+            <a class="btn-primary" href="products.html">Browse access products</a>
+            <a class="btn-wa" href="https://wa.me/256768381442?text=Hi%2C%20I%27m%20interested%20in%20access%20control" target="_blank" rel="noopener">WhatsApp about access</a>
+            <a class="btn-ghost" href="contact.html">Request a survey</a>
+          </div>
+        </div>
+        <div class="solution-points">
+          <h3>Typical use cases</h3>
+          <ul>
+            <li>Office main doors</li>
+            <li>Staff-only areas</li>
+            <li>Server / stock rooms</li>
+            <li>Gated entries</li>
+            <li>Time &amp; attendance</li>
+          </ul>
+          <h3 style="margin-top:1rem">What we set up</h3>
+          <ul>
+            <li>Facial recognition terminals</li>
+            <li>Fingerprint readers</li>
+            <li>Card / PIN options</li>
+            <li>Door controllers and locks</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Alarms -->
+    <article class="solution-block" id="alarms">
+      <span class="solution-tag">Intrusion</span>
+      <h2>Alarm systems</h2>
+      <p class="solution-lead">
+        Detect forced entry early with door contacts, motion sensors, and sirens — plus alerts on your phone when something triggers.
+      </p>
+      <div class="solution-grid">
+        <div class="solution-body">
+          <p>
+            Cameras show what happened. Alarms help you respond when it is happening. A well-planned system covers likely entry points
+            first — main doors, windows, and corridors — then expands as needed.
+          </p>
+          <p>
+            Sevtis installs wired and wireless kits suited to homes and small businesses, with outdoor sirens where a visible deterrent helps.
+            We explain arming, zones, and app alerts so the system is used every day, not only the week after install.
+          </p>
+          <div class="solution-actions">
+            <a class="btn-primary" href="products.html">Browse alarm products</a>
+            <a class="btn-wa" href="https://wa.me/256768381442?text=Hi%2C%20I%27m%20interested%20in%20an%20alarm%20system" target="_blank" rel="noopener">WhatsApp about alarms</a>
+            <a class="btn-ghost" href="contact.html">Request a survey</a>
+          </div>
+        </div>
+        <div class="solution-points">
+          <h3>Typical use cases</h3>
+          <ul>
+            <li>Homes after hours</li>
+            <li>Shops overnight</li>
+            <li>Offices and clinics</li>
+            <li>Combined with CCTV</li>
+          </ul>
+          <h3 style="margin-top:1rem">What we set up</h3>
+          <ul>
+            <li>Control panels and sensors</li>
+            <li>Door / window contacts</li>
+            <li>Motion detection</li>
+            <li>Indoor / outdoor sirens</li>
+            <li>Mobile notifications</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Process -->
+    <section class="how-section" id="process">
+      <h2>How we work</h2>
+      <div class="how-steps">
+        <div class="how-step">
+          <span>01</span>
+          <h3>Understand the site</h3>
+          <p>Your property type, risks, and budget — by chat, call, or survey.</p>
+        </div>
+        <div class="how-step">
+          <span>02</span>
+          <h3>Recommend a system</h3>
+          <p>Cameras, access, alarms, or a combined package that fits.</p>
+        </div>
+        <div class="how-step">
+          <span>03</span>
+          <h3>Supply &amp; install</h3>
+          <p>Professional installation and a clear handover of how to use it.</p>
+        </div>
+        <div class="how-step">
+          <span>04</span>
+          <h3>Support</h3>
+          <p>Help with adjustments, expansion, and ongoing reliability.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="bottom-cta">
+      <h2>Not sure where to start?</h2>
+      <p>Tell us whether it’s a home, shop, or office — we’ll suggest a practical setup.</p>
+      <div class="solution-actions">
+        <a class="btn-primary" href="contact.html">Request a free survey</a>
+        <a class="btn-wa" href="https://wa.me/256768381442?text=Hi%2C%20I%20need%20help%20choosing%20a%20security%20system" target="_blank" rel="noopener">WhatsApp Sevtis</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-tag">
+    <div>
+      <h3>Solutions</h3>
+      <a href="#cctv">CCTV</a>
+      <a href="#biometric">Access control</a>
+      <a href="#alarms">Alarms</a>
+    </div>
+    <div>
+      <h3>Explore</h3>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+      <a href="sevtis-index.html">Home</a>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p class="footer-phone"><a href="tel:+256768381442">0768 381 442</a></p>
+      <a href="https://wa.me/256768381442" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </footer>
+
+  <script>
+    var menuToggle = document.getElementById('menuToggle');
+    var navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', function () {
+        navLinks.classList.toggle('open');
+      });
+    }
+  </script>
+</body>
+</html>
